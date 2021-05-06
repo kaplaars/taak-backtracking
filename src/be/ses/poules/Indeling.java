@@ -58,7 +58,8 @@ public class Indeling {
             landen.get(i).setIncompatibel(incompat);
         }        
 
-        /*zet eens uit commentaar:  Collections.reverse(ploegen);*/
+        //zet eens uit commentaar:
+        Collections.reverse(ploegen);
     }
 
     public Optional<Land> getLandOpNaam(String naam) {
@@ -95,47 +96,59 @@ public class Indeling {
     public ArrayList<Poule> getPoules() {
         return poules;
     }
+    public static int poulegrote(int aantalPloegen, int aantalPoules){
+        if(aantalPloegen%aantalPoules == 0){
+            return aantalPloegen/aantalPoules;
+        }else{
+            return (aantalPloegen/aantalPoules)+1;
+        }
+    }
 
-    public  void Pouledeler() {
+    public  void Pouledeler(int aantalpoules) {
         int route = 0;
         poules.get(0).voegtoe(ploegen.get(0));                      //zet ploeg 1 in poule 1
+        route = route+1;
         for (int i = 1; i < ploegen.size(); i++) {
             System.out.println("ik check nu ploegnr" + i);
-            if (poules.get(0).magInPoule(ploegen.get(i)) && route % 10 < 1){
+            if (poules.get(0).magInPoule(ploegen.get(i))  && poules.get(0).getAantal() < poulegrote(ploegen.size(),6)){
                 System.out.println("ik zet nu ploegnr " + i + "in poule 1");
                 poules.get(0).voegtoe(ploegen.get(i));
                 route = route * 10;
-                route = +1;
-            }else if(poules.get(1).magInPoule(ploegen.get(i)) && route % 10 < 2){
+                route = route+1;
+            }else if(poules.get(1).magInPoule(ploegen.get(i))  &&poules.get(1).getAantal() < poulegrote(ploegen.size(),6)){
                 System.out.println("ik zet nu ploegnr " + i + " in poule 2");
                 poules.get(1).voegtoe(ploegen.get(i));
                 route = route * 10;
-                route = +2;
-            }else if(poules.get(2).magInPoule(ploegen.get(i)) && route % 10 < 3) {
+                route = route+2;
+            }else if(poules.get(2).magInPoule(ploegen.get(i))  && poules.get(2).getAantal() < poulegrote(ploegen.size(),6)) {
                 System.out.println("ik zet nu ploegnr " + i + " in poule 3");
                 poules.get(2).voegtoe(ploegen.get(i));
                 route = route * 10;
-                route = +3;
-            }else if(poules.get(3).magInPoule(ploegen.get(i)) && route % 10 < 4) {
+                route = route+3;
+            }else if(poules.get(3).magInPoule(ploegen.get(i)) && poules.get(3).getAantal() < poulegrote(ploegen.size(),6)) {
                 System.out.println("ik zet nu ploegnr " + i + " in poule 4");
                 poules.get(3).voegtoe(ploegen.get(i));
                 route = route * 10;
-                route = +4;
-            }else if(poules.get(4).magInPoule(ploegen.get(i)) && route % 10 < 5) {
+                route = route+4;
+            }else if(poules.get(4).magInPoule(ploegen.get(i))  && poules.get(4).getAantal() < poulegrote(ploegen.size(),6)) {
                 System.out.println("ik zet nu ploegnr " + i + " in poule 5");
                 poules.get(4).voegtoe(ploegen.get(i));
                 route = route * 10;
-                route = +5;
-            }else if(poules.get(5).magInPoule(ploegen.get(i)) && route % 10 < 6) {
+                route = route+5;
+            }else if(poules.get(5).magInPoule(ploegen.get(i))  && poules.get(5).getAantal() < poulegrote(ploegen.size(),6)) {
                 System.out.println("ik zet nu ploegnr " + i + " in poule 6");
                 poules.get(5).voegtoe(ploegen.get(i));
                 route = route * 10;
-                route = +6;
+                route = route+6;
+            }else if(aantalpoules == 7 && poules.get(6).magInPoule(ploegen.get(i))  && poules.get(6).getAantal() < poulegrote(ploegen.size(),6)) {
+                System.out.println("ik zet nu ploegnr " + i + " in poule 6");
+                poules.get(5).voegtoe(ploegen.get(i));
+                route = route * 10;
+                route = route+6;
             }else{
                 System.out.println("ik ga een stap terug in de boom");
-                route = route/10;
-                route = +1;
-                i = i-1;
+                route = route+1;
+                i = i-2;
             }
         }
     }
