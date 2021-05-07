@@ -1,7 +1,11 @@
-package be.ses.poules;
+package test;
 
+import be.ses.poules.Indeling;
+import be.ses.poules.Land;
+import be.ses.poules.Ploeg;
+import be.ses.poules.Poule;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class tests {
     @Test
@@ -10,9 +14,9 @@ public class tests {
         //arrange
         Poule poule = new Poule();
         //act
-        int verdelingresult=Indeling.poulegrote(9, 3);
+        int verdelingresult= Indeling.poulegrote(9, 3);
         //assert
-        assertEquals(verdelingresult,3);
+        Assertions.assertEquals(verdelingresult,3);
     }
 
     @Test
@@ -23,7 +27,7 @@ public class tests {
         //act
         int verdelingresult=Indeling.poulegrote(10, 3);
         //assert
-        assertEquals(verdelingresult,4);
+        Assertions.assertEquals(verdelingresult,4);
     }
 
     @Test
@@ -40,7 +44,7 @@ public class tests {
         //2 Act
         boolean resultaat = poule.magInPoule(ploeg3);
         //3 Assert
-        assertFalse(resultaat);
+        Assertions.assertFalse(resultaat);
     }
 
     @Test
@@ -55,7 +59,7 @@ public class tests {
         //2 Act
         boolean resultaat = poule.magInPoule(ploeg2);
         //3 Assert
-        assertTrue(resultaat);
+        Assertions.assertTrue(resultaat);
     }
 
     //Test voor: isPloegCompatibelMetPloegenUitPoule
