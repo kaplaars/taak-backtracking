@@ -39,7 +39,11 @@ public class Poule {
         return ploegen.size();
     }
 
-
+    /**
+     *
+     * @param huidigploeg
+     * @return true/false
+     */
     public boolean issMaxCountryBereikt(Ploeg huidigploeg){
         //check of max landen in poule bereikt
         int count = 0;
@@ -55,6 +59,11 @@ public class Poule {
         }
     }
 
+    /**
+     *
+     * @param huidigePloeg
+     * @return true/false
+     */
     public boolean magInPoule(Ploeg huidigePloeg) {
         // mag deze ploeg met de andere ploegen in de poule
         for (Ploeg ploeg : this.ploegen) {      //elke ploeg die in poule zit chekken

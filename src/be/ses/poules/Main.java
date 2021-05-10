@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Uhasselt: 1951948 KUleuven: r
+ *uren besteed: 12h
+ * @author Ben Luyck Uhasselt: 1951948 KUleuven: r0664277
  */
 public class Main {
     private static int aantalpoules = 6;

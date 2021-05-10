@@ -104,6 +104,10 @@ public class Indeling {
         }
     }
 
+    /**
+     *
+     * @param aantalpoules
+     */
     public  void Pouledeler(int aantalpoules) {
         int route = 0;
         poules.get(0).voegtoe(ploegen.get(0));                      //zet ploeg 1 in poule 1
